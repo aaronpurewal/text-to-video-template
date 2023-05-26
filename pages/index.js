@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Replicate from "replicate";
 
 
 
@@ -13,7 +12,7 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/api/predictions", {
+    const response = await fetch("api/predictions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +33,7 @@ export default function Home() {
       prediction.status !== "failed"
     ) {
       await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
+      const response = await fetch("api/predictions/" + prediction.id);
       prediction = await response.json();
       if (response.status !== 200) {
         setError(prediction.detail);
