@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Replicate from "replicate";
+
+
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
